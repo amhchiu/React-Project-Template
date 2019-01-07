@@ -1,8 +1,9 @@
 module.exports = {
+    mode: 'development',
     entry: "./src/index.js",
     output: {
-        filename: "[name].bundle.js",
-        path: __dirname + "/public/bundles"
+        path: __dirname + '/public/bundles/',
+        filename: "[name].bundle.js"
     },
     resolve: {
         extensions: ['*', '.js', '.jsx', '.json']
@@ -10,13 +11,10 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",
-                    options: {
-                        preset: ['@babel/preset-env']
-                    }
                 }
             }
         ]
